@@ -34,6 +34,18 @@ public class UserServiceImpl implements UserService{
             return "failed edit";
         }
 		
-	}
+    }
+
+    @Override
+    public User getUser(int id) {
+        return userRepo.getOne(id);
+    }
+
+    
+    @Override
+    public User generateUser(String name, String lastName, String shippingAddress, String billingAddress, String cardNumber, String cardExpiration){
+        return userRepo.save(new User(name, lastName, shippingAddress, billingAddress, cardNumber, cardExpiration));
+    }
+
     
 }

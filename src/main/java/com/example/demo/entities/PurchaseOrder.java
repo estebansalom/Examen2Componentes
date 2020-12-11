@@ -22,13 +22,13 @@ public class PurchaseOrder implements Serializable {
     @Column(name="id", nullable=false)
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
-    @Column(name="product_type", nullable = false)
+    @Column(name="productType", nullable = false)
     private String productType;
     @Column(name="quantity", nullable=false)
     private int quantity;
-    @Column(name="image_url", nullable= false)
+    @Column(name="imageUrl", nullable= false)
     private String image_url;
-    @Column(name="customer_id",nullable=false)
+    @Column(name="customerID",nullable=false)
     private int customerID;
 
     public PurchaseOrder(){
@@ -36,6 +36,14 @@ public class PurchaseOrder implements Serializable {
     }
 
     public PurchaseOrder(@JsonProperty("id")int id, @JsonProperty("product_type")String productType, @JsonProperty("quantity")int quantity, @JsonProperty("image_url")String image_url, @JsonProperty("customer_id")int customerId){
+        this.id = id;
+        this.customerID = customerId;
+        this.productType = productType;
+        this.quantity = quantity;
+        this.image_url = image_url;
+    }
+
+    public PurchaseOrder(@JsonProperty("product_type")String productType, @JsonProperty("quantity")int quantity, @JsonProperty("image_url")String image_url, @JsonProperty("customer_id")int customerId){
         this.id = id;
         this.customerID = customerId;
         this.productType = productType;

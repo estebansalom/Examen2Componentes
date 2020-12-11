@@ -45,5 +45,15 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
             return "failed edit";
         }
     }
+
+    public PurchaseOrder getById(int id){
+        return poRepo.getOne(id);
+    }
+
+    @Override
+    public PurchaseOrder generatePurchaseOrder(String productType, int quantity, String imageUrl,
+            int customerID) {
+        return poRepo.save(new PurchaseOrder(productType, quantity, imageUrl, customerID));
+    }
     
 }

@@ -8,4 +8,6 @@ public interface UserService {
     public List<User> getAllUsers();
     public void createUser(User puser);
     public String editUser(User puser);
+    public User getUser(int id);
+    public User generateUser(String name, String lastName, String shippingAddress, String billingAddress, String cardNumber, String cardExpiration);
 }

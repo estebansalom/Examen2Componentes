@@ -24,15 +24,15 @@ public class User implements Serializable{
     private int id;
     @Column(name="name", nullable = false)
     private String name;
-    @Column(name="last_name", nullable = false)
+    @Column(name="lastName", nullable = false)
     private String lastName;
-    @Column(name="shipping_address", nullable = false)
+    @Column(name="shippingAddress", nullable = false)
     private String shippingAddress;
-    @Column(name="billing_address")
+    @Column(name="billingAddress")
     private String billingAddress;
-    @Column(name="card_number", nullable=false)
+    @Column(name="cardNumber", nullable=false)
     private String cardNumber;
-    @Column(name="card_expiration", nullable=false)
+    @Column(name="cardExpiration", nullable=false)
     private String cardExpiration;
 
     public User(){
@@ -41,6 +41,15 @@ public class User implements Serializable{
 
     public User(@JsonProperty("id")int id, @JsonProperty("name") String name, @JsonProperty("last_name")String lastName,@JsonProperty("shipping_address")String shippingAddress, @JsonProperty("billing_address")String billingAddress, @JsonProperty("card_number")String cardNumber,@JsonProperty("card_expiration")String cardExpiration){
         this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.billingAddress = billingAddress;
+        this.shippingAddress = shippingAddress;
+        this.cardNumber = cardNumber;
+        this.cardExpiration = cardExpiration;
+    }
+
+    public User(@JsonProperty("name") String name, @JsonProperty("last_name")String lastName,@JsonProperty("shipping_address")String shippingAddress, @JsonProperty("billing_address")String billingAddress, @JsonProperty("card_number")String cardNumber,@JsonProperty("card_expiration")String cardExpiration){
         this.name = name;
         this.lastName = lastName;
         this.billingAddress = billingAddress;
