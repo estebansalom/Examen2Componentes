@@ -12,13 +12,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserQuery implements GraphQLQueryResolver {
 	@Autowired
-	 private UserService userService;
-	
-	 public List<User> getUsers(int count) {
-	 return this.userService.getAllUsers();
-	 }
-	 
-	 public User getUser(int id) {
-	 return this.userService.getUser(id);
-	 }
+	private UserService userService;
+
+	public List<User> getUsers(int count) {
+		return this.userService.getAllUsers();
+	}
+
+	public User getUser(int id) {
+		return this.userService.getUser(id);
+	}
 }

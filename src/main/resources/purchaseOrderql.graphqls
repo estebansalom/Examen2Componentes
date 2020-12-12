@@ -1,16 +1,21 @@
 type PurchaseOrder {
-	id: ID!,
-	productType: String,
-	quantity: Int,
-	imageUrl: String,
-	customerID: Int
+  id: ID!
+  productType: String
+  quantity: Int
+  imageUrl: String
+  customerID: Int
 }
 
-type Query {
-	purchaseOrders(count : Int):[PurchaseOrder]
-	purchaseOrder(id:ID):PurchaseOrder
+type PurchaseOrderQueries {
+  purchaseOrders(count: Int): [PurchaseOrder]
+  purchaseOrder(id: ID): PurchaseOrder
 }
 
 type Mutation {
-	createPurchaseOrder(productType: String!, quantity: Int!, imageUrl: String!,  customerID: Int!):PurchaseOrder
+  createPurchaseOrder(
+    productType: String!
+    quantity: Int!
+    imageUrl: String!
+    customerID: Int!
+  ): PurchaseOrder
 }

@@ -1,18 +1,25 @@
 type User {
-	id: ID!,
-	name: String,
-	lastName: String,
-	shippingAddress: String,
-    billingAddress: String,
-    cardNumber: String,
-    cardExpiration: String
+  id: ID!
+  name: String
+  lastName: String
+  shippingAddress: String
+  billingAddress: String
+  cardNumber: String
+  cardExpiration: String
 }
 
 type Query {
-	users(count : Int):[User]
-	user(id:ID):User
+  users(count: Int): [User]
+  user(id: ID): User
 }
 
 type Mutation {
-	createUser(name: String!, lastName: String!, shippingAddress: String!, billingAddress: String!, cardNumber: String!, cardExpiration: String!):User
+  createUser(
+    name: String!
+    lastName: String!
+    shippingAddress: String!
+    billingAddress: String!
+    cardNumber: String!
+    cardExpiration: String!
+  ): User
 }
