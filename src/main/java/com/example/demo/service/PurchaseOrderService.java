@@ -13,7 +13,7 @@ public interface PurchaseOrderService {
 
     public PurchaseOrder getById(int id);
 
-    public List<PurchaseOrder> findByProductType(int id);
+    public List<PurchaseOrder> findByProductType(String id);
 
     public PurchaseOrder generatePurchaseOrder(String productType, int quantity, String imageUrl, int customerID);
 }

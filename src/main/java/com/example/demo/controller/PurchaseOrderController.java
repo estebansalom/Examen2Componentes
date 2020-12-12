@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.websocket.server.PathParam;
@@ -44,12 +45,13 @@ public class PurchaseOrderController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<PurchaseOrder> findById(@PathParam("id") int id) {
+    public ResponseEntity<PurchaseOrder> findById(@PathVariable("id") int id) throws IOException {
         return ResponseEntity.ok(poService.getById(id));
     }
 
-    @RequestMapping(value = "/productType/{id}", method = RequestMethod.GET)
-    public ResponseEntity<List<PurchaseOrder>> findByBillingAddress(@PathVariable("id") int param) {
+    @RequestMapping(value = "/productType/{text}", method = RequestMethod.GET)
+    public ResponseEntity<List<PurchaseOrder>> findByBillingAddress(@PathVariable("text") String param)
+            throws IOException {
         return ResponseEntity.ok(poService.findByProductType(param));
     }
 }

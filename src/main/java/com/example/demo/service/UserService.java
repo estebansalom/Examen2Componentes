@@ -21,4 +21,6 @@ public interface UserService {
 
     public User generateUser(String name, String lastName, String shippingAddress, String billingAddress,
             String cardNumber, String cardExpiration);
+
+    public User updateUser(User u);
 }

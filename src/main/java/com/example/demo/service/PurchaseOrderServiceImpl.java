@@ -52,12 +52,12 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
 
     @Override
     public PurchaseOrder generatePurchaseOrder(String productType, int quantity, String imageUrl, int customerID) {
-        return poRepo.save(new PurchaseOrder(productType, quantity, imageUrl, customerID));
+        return poRepo.save(new PurchaseOrder(0, productType, quantity, imageUrl, customerID));
     }
 
     @Override
-    public List<PurchaseOrder> findByProductType(int id) {
-        return poRepo.findByProductType(id);
+    public List<PurchaseOrder> findByProductType(String id) {
+        return poRepo.findByProductTypeContaining(id);
     }
 
 }

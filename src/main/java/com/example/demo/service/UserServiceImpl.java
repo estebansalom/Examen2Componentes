@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User generateUser(String name, String lastName, String shippingAddress, String billingAddress,
             String cardNumber, String cardExpiration) {
-        return userRepo.save(new User(name, lastName, shippingAddress, billingAddress, cardNumber, cardExpiration));
+        return userRepo.save(new User(0, name, lastName, shippingAddress, billingAddress, cardNumber, cardExpiration));
     }
 
     @Override
@@ -61,6 +61,18 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(int id) {
         userRepo.deleteById(id);
 
+    }
+
+    @Override
+    public User updateUser(User u) {
+        User existingUser = userRepo.findById(u.getId());
+
+        if (existingUser != null) {
+            User res = userRepo.save(u);
+            return res;
+        } else {
+            return null;
+        }
     }
 
 }

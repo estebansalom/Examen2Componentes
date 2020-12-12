@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
 public interface PurchaseOrderRepository extends JpaRepository<PurchaseOrder, Integer> {
     public PurchaseOrder findById(int id);
 
-    public List<PurchaseOrder> findByProductType(int id);
+    public List<PurchaseOrder> findByProductTypeContaining(String id);
 }
