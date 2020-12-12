@@ -22,4 +22,9 @@ public class UserMutation implements GraphQLMutationResolver {
         User u = new User(id, name, lastName, shippingAddress, billingAddress, cardNumber, cardExpiration);
         return userService.updateUser(u);
     }
+
+    public Boolean deleteUser(int id) {
+        userService.deleteUser(id);
+        return true;
+    }
 }

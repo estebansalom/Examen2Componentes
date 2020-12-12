@@ -32,4 +32,6 @@ type Mutation {
     cardNumber: String
     cardExpiration: String
   ): User
+
+  deleteUser(id: Int!): Boolean
 }
